@@ -33,10 +33,8 @@ func (stk *Stack) Pop() (interface{}, error) {
 
 	stk.lock.Lock()
 	defer stk.lock.Unlock()
-
-	length := len(stk.buff)
-
-	if length == 0 { 
+	
+	if length := len(stk.buff); length == 0 { 
 	    return 0, errors.New("Pop function: Stack is empty")
 	}
 
@@ -52,14 +50,11 @@ func (stk *Stack) Top() (interface{}, error) {
 	stk.lock.Lock()
 	defer stk.lock.Unlock()
 
-	length := len(stk.buff)
-
-	if length == 0 { 
+	if length := len(stk.buff); length == 0 { 
 	    return 0, errors.New("Top function: Stack is empty")
 	}
 
 	return stk.buff[length - 1], nil
-
 }
 
 // Len returns the current length of stack
@@ -78,14 +73,14 @@ func (stk *Stack) Empty() bool {
 	stk.lock.Lock()
 	defer stk.lock.Unlock()
 
-	return (!len(stk.buff))
+	return (len(stk.buff) == 0)
 }
 
 // Clear clears the stack. All values are deleted
 func (stk *Stack) Clear() {
   
-  stk.lock.Lock()
-  defer stk.lock.Unlock()
-  
-  stk.buff = nil
+	  stk.lock.Lock()
+	  defer stk.lock.Unlock()
+
+	  stk.buff = nil
 }
