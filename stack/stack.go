@@ -34,7 +34,8 @@ func (stk *Stack) Pop() (interface{}, error) {
 	stk.lock.Lock()
 	defer stk.lock.Unlock()
 	
-	if length := len(stk.buff); length == 0 { 
+	length := len(stk.buff);
+	if length == 0 { 
 	    return 0, errors.New("Pop function: Stack is empty")
 	}
 
@@ -50,7 +51,8 @@ func (stk *Stack) Top() (interface{}, error) {
 	stk.lock.Lock()
 	defer stk.lock.Unlock()
 
-	if length := len(stk.buff); length == 0 { 
+	length := len(stk.buff)
+	if length == 0 { 
 	    return 0, errors.New("Top function: Stack is empty")
 	}
 
