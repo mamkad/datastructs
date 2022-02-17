@@ -14,7 +14,7 @@ type Stack struct {
 
 // Stack creates a new stack instance
 // Return *Stack
-func Stack() *Stack {
+func NewStack() *Stack {
 	return &Stack { sync.Mutex{}, make([]interface{}, 0)}	
 }
 
