@@ -85,7 +85,7 @@ func (stk *Stack) Empty() bool {
 func (stk *Stack) Clear() {
   
   stk.lock.Lock()
-	defer stk.lock.Unlock()
+  defer stk.lock.Unlock()
   
   stk.buff = nil
 }
